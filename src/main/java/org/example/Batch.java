@@ -5,16 +5,22 @@ import java.util.ArrayList;
 public class Batch {
     private ArrayList<Participant> participantsList;
     private int bid;
-    private String project;
+    private String batchName;
 
-    public Batch(ArrayList<Participant> participantsList, int bid, String project) {
+    public Batch(ArrayList<Participant> participantsList, String batchName) {
         this.participantsList = participantsList;
-        this.bid = bid;
-        this.project = project;
+        this.bid = this.hashCode();
+        this.batchName = batchName;
     }
 
-    public ArrayList<Participant> getParticipantsList() {
-        return participantsList;
+    public Batch() {
+        this.bid = this.hashCode();
+    }
+
+    public String getParticipantsList() {
+        StringBuffer result = new StringBuffer("");
+        participantsList.forEach(participant -> {result.append(participant.getName() + " ");});
+        return result.toString();
     }
 
     public void setParticipantsList(ArrayList<Participant> participantsList) {
@@ -35,11 +41,11 @@ public class Batch {
         this.bid = bid;
     }
 
-    public String getProject() {
-        return project;
+    public String getBatchName() {
+        return batchName;
     }
 
-    public void setProject(String project) {
-        this.project = project;
+    public void setBatchName(String batchName) {
+        this.batchName = batchName;
     }
 }

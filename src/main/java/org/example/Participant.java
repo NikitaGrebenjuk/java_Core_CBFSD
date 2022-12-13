@@ -21,12 +21,20 @@ public class Participant {
         this.batch.addParticipant(this);
     }
 
-    public Participant(int id, String name, String email, String phone, String project) {
-        this.id = id;
+    public Participant(String name, String email, String phone, String project) {
+        this.id = this.hashCode();
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.project = project;
+    }
+
+    public Participant(String name) {
+        this.id = this.hashCode();
+        this.name = name;
+        this.email = "email";
+        this.phone = "phone";
+        this.project = "project";
     }
 
     public int getId() {
