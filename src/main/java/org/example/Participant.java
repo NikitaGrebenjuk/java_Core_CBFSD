@@ -1,6 +1,6 @@
 package org.example;
 
-public class Participant {
+public class Participant implements Callback {
     private int id;
     private String name;
     private String email;
@@ -78,4 +78,8 @@ public class Participant {
     }
 
 
+    @Override
+    public void greetings() {
+        System.out.println("Goood Morning " + this.name);
+    }
 }

@@ -17,11 +17,12 @@ public class Batch {
         this.bid = this.hashCode();
     }
 
-    public String getParticipantsList() {
+/*    public String getParticipantsList() {
         StringBuffer result = new StringBuffer("");
         participantsList.forEach(participant -> {result.append(participant.getName() + " ");});
         return result.toString();
-    }
+    }*/
+
 
     public void setParticipantsList(ArrayList<Participant> participantsList) {
         this.participantsList = participantsList;
@@ -47,5 +48,12 @@ public class Batch {
 
     public void setBatchName(String batchName) {
         this.batchName = batchName;
+    }
+
+    public void greetParticipant(Callback participant){
+        participant.greetings();
+    }
+    public void greetAllParticipants(){
+        participantsList.forEach(participant -> greetParticipant(participant));
     }
 }
