@@ -56,4 +56,8 @@ public class Batch {
     public void greetAllParticipants(){
         participantsList.forEach(participant -> greetParticipant(participant));
     }
+    public void startBatch(){
+        greetAllParticipants();
+        System.out.println(getBatchName() + "-Batch started.");
+    }
 }
