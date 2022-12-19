@@ -16,7 +16,7 @@ public class Input {
         phrases.add("Batch was created. Type anything to continue"); //5
         phrases.add("What is the batch about? Give it a name!"); //6
         phrases.add("If you want to create a(nother) participant, type '1', type anything else to finish creation of the batch!");//7
-        phrases.add("Do you want to continue? Type 'yes' for YES or anything for NO");//8
+        phrases.add("Do you want to continue? Type 'yes' for YES or 'no' for NO");//8
     }
 
     Scanner scanner;
