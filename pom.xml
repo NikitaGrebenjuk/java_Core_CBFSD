@@ -33,11 +33,11 @@
     </dependencies>
 
     <build>
-        <outputDirectory>${project.basedir}/target/classes</outputDirectory>
-
+        <finalName>myWAR</finalName>
+        <directory>${project.basedir}/target</directory>
         <plugins>
 
-            <!-- complier plugin -->
+            <!-- complier plugin-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -49,24 +49,44 @@
                 </plugin>
 
 
-            <!-- jar plugin
-                <plugin>
+            <!-- jar plugin-->
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.0</version>
                 <executions>
                     <execution>
-                        <id>make-my-jar</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
                         <configuration>
+                            <id>make-my-jar</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>custom-jar</goal>
+                            </goals>
                             <finalName>my-custom-jar-name</finalName>
                         </configuration>
                     </execution>
                 </executions>
-        </plugin>-->
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <id>default-war</id>
+                            <phase>package</phase>
+                            <!-- optional configuration -->
+                            <goals>
+                                <goal>war</goal>
+                            </goals>
+                            <warName>myWAR</warName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
+    <packaging>war</packaging>
 </project>
